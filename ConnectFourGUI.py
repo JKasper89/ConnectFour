@@ -22,13 +22,7 @@ class BoardView(Canvas):
         self.p = []
         self.perm = True
 
-        for i in range(0,340,int(400/6)):
-            liste_rangee = []
-            for j in range(0,440, int(500/7)):
-                liste_rangee.append(Slot(j,i))
 
-            self.p.append(liste_rangee)
-        #self.bind("<Button-1>", self.detCol)
 
 
 
