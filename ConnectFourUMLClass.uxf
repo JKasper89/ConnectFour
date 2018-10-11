@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>300</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>*Board*
+--
+&lt;&lt;Properties&gt;&gt;
++ Rows : Rows[0..*] {readonly}
++ Columns : Column[0..*] {readonly}
++ Diagonals : Diagonal[0..*] {readonly}
++ Slots : Slot[0..*] {readonly}
+--
++CheckIfFourConnects() : string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>250</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*MainGame*
+--
+&lt;&lt;Properties&gt;&gt;
++ Board : Board {readonly}
++ Players : Player[2] {readonly}
+--
++ initializeGame() :
++ startGame() :</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>330</y>
+      <w>210</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>*Colour*
+--
+&lt;&lt;Properties&gt;&gt;
++ Red : int{readonly}
++ Green : int{readonly}
++ Blue : int{readonly}
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>40</y>
+      <w>240</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*IColumn*
+--
+&lt;&lt;Properties&gt;&gt;
++ Slots : Slot[0..*]{readonly}
+--
+/+DropCoin()/ :
+/+IsColumnFull()/ : bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>190</y>
+      <w>260</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*Line*
+--
+&lt;&lt;Properties&gt;&gt;
++ Slots : Slot[0..*]{readonly}
+--
++CheckIfFourConnects() :</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>380</y>
+      <w>240</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>*Player*
+--
+&lt;&lt;Properties&gt;&gt;
++ Name : string {readonly}
++ Coins : Coin[0..*]{readonly}
+--
++ makeTurn(value : Column) :
++ looseCoin(value : Coin)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>40</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*Column*
+Line, IColumn
+--
++DropCoin(value : Coin) :
++ IsColumnFull() : bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>240</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*Row*
+Line
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>130</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*Slot*
+--
+&lt;&lt;Properties&gt;&gt;
++ X : int{readonly}
++ Y : int{readonly}
++ Coin : Coin
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>40</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*Diagonal*
+Line
+--
++ StartIndexX : int{readonly}
++ StartIndexY : int{readonly}
++ DiagonalDirection : 
+DiagonalDirection{readonly}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>40</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+*DiagonalDirection*
+--
+DownLeft
+DownRight</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>450</y>
+      <w>260</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*BoardFactory*
+--
+&lt;&lt;Properties&gt;&gt;
++ Rows : Rows[0..*] {readonly}
++ Columns : Column[0..*] {readonly}
++ Diagonals : Diagonal[0..*] {readonly}
++ Slots : Slot[0..*] {readonly}
+--
++ CreateBoard( rowsCount : int,
+					columnsCount : int) : Board</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>330</y>
+      <w>210</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>*Coin*
+--
+&lt;&lt;Properties&gt;&gt;
++ Colour : Colour {readonly}
++ PlayerName : string {readonly}
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>80</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>110</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>200</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>240</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>80</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

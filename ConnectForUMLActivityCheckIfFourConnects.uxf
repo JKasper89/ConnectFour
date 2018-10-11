@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>799</w>
+      <h>806</h>
+    </coordinates>
+    <panel_attributes>title:checkIfFourConnects
+Start
+counter = 0\actualPlayerName = None
+While[slots left]
+	If
+		[Coin = None]
+		actualPlayerName = None\counter = 0
+
+		[actualPlayerName != \Coin.actualPlayerName]
+		actualPlayerName = Coin.actualPlayerName\counter = 1
+		
+		[else]
+		counter += 1
+	EndIf
+[no slot left]
+If
+	[counter &gt;= 4]
+	return actualPlayerName
+
+	[else]
+	return None
+EndIf
+End
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
